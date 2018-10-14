@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Dennis Mitchell</Authors>
+    <Company>edennis.com</Company>
+    <Description>Provides various classes that assist with ASP.NET Core 2 development.</Description>
+    <Summary>Provides various classes that assist with ASP.NET Core 2 development.</Summary>
+    <PackageTags>ASP.NET MVC middleware bytearray</PackageTags>
+    <PackageProjectUrl>https://github.com/denmitchell/NetCoreTestingUtilities</PackageProjectUrl>
+    <PackageIconUrl>https://avatars0.githubusercontent.com/u/2938333?s=400&amp;v=4</PackageIconUrl>
+    <RepositoryUrl>https://github.com/denmitchell/EDennis.AspNetCore.Utils</RepositoryUrl>
+    <Version>0.1.0-alpha</Version>
+    <PackageReleaseNotes>Pre-release version</PackageReleaseNotes>
+    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <FileVersion>0.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
