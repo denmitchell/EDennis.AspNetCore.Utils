@@ -11,14 +11,15 @@
     <PackageProjectUrl>https://github.com/denmitchell/NetCoreTestingUtilities</PackageProjectUrl>
     <PackageIconUrl>https://avatars0.githubusercontent.com/u/2938333?s=400&amp;v=4</PackageIconUrl>
     <RepositoryUrl>https://github.com/denmitchell/EDennis.AspNetCore.Utils</RepositoryUrl>
-    <Version>0.1.0-alpha</Version>
-    <PackageReleaseNotes>Pre-release version</PackageReleaseNotes>
-    <AssemblyVersion>0.1.0</AssemblyVersion>
-    <FileVersion>0.1.0</FileVersion>
+    <Version>1.0.0</Version>
+    <PackageReleaseNotes>Includes integration tests and PgpEncryptionMiddleware</PackageReleaseNotes>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.5" />
+    <PackageReference Include="PgpCore" Version="1.2.1" />
   </ItemGroup>
 
 </Project>

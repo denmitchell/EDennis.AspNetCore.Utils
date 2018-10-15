@@ -38,7 +38,8 @@ namespace EDennis.AspNetCore.Utils.Middleware {
         /// to doing the actual transformation of the 
         /// response body.
         /// </summary>
-        protected abstract void SetupTransformation();
+        /// <param name="context">The HTTP context object</param>
+        protected abstract void SetupTransformation(HttpContext context);
 
         /// <summary>
         /// Implement this method in order to transform the
@@ -77,7 +78,7 @@ namespace EDennis.AspNetCore.Utils.Middleware {
                     delegatedBodyStream.Seek(0, SeekOrigin.Begin);
 
                     //asynchronously setup and invoke the transformation
-                    await Task.Run(() => { SetupTransformation(); });
+                    await Task.Run(() => { SetupTransformation(context); });
                     await Task.Run(() => { Transform(delegatedBodyStream, transformOutputStream); });
 
                     //rewind stream
