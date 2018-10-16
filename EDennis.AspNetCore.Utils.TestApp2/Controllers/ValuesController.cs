@@ -1,9 +1,12 @@
-﻿using EDennis.AspNetCore.Utils.ByteArray;
-using EDennis.AspNetCore.Utils.TestApp1.Utils;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using EDennis.AspNetCore.Utils.ByteArray;
+using EDennis.AspNetCore.Utils.TestApp2.Utils;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EDennis.AspNetCore.Utils.TestApp1.Controllers {
-
+namespace EDennis.AspNetCore.Utils.TestApp2.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase {
@@ -23,6 +26,5 @@ namespace EDennis.AspNetCore.Utils.TestApp1.Controllers {
             var flipped = ByteManipulator.FlipBytes(bytes);
             return flipped;
         }
-
     }
 }

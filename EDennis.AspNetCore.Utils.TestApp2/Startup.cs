@@ -1,12 +1,17 @@
-﻿using EDennis.AspNetCore.Utils.ByteArray;
-using EDennis.AspNetCore.Utils.Middleware.Pgp;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using EDennis.AspNetCore.Utils.Middleware.Sftp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
-namespace EDennis.AspNetCore.Utils.TestApp1 {
+namespace EDennis.AspNetCore.Utils.TestApp2 {
     public class Startup {
         public Startup(IConfiguration configuration) {
             Configuration = configuration;
@@ -16,28 +21,23 @@ namespace EDennis.AspNetCore.Utils.TestApp1 {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
-            services.AddMvc(options => {
-                options.OutputFormatters.Insert(0, new ByteArrayOutputFormatter());
-            }                
-                ).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
-            } else {
-                app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-
-            app.UsePgpEncryption(options => {
-                options.PublicKeyHeader = "X-PgpPublicKey";
-                options.CompressionTypeHeader = "X-PgpCompressionType";
-                options.UseArmorHeader = "X-PgpUseArmor";
+            app.UseSftpUpload(options => {
+                options.FileNameHeader = "X-SftpFileName";
+                options.HostHeader = "X-SftpHost";
+                options.PortHeader = "X-SftpPort";
+                options.UserNameHeader = "X-SftpUserName";
+                options.PasswordHeader = "X-SftpPassword";
             });
+
 
             app.UseMvc();
         }

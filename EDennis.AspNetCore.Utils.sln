@@ -5,9 +5,13 @@ VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDennis.AspNetCore.Utils", "EDennis.AspNetCore.Utils\EDennis.AspNetCore.Utils.csproj", "{9B949D9B-6467-4372-9E4D-940A598D469C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDennis.AspNetCore.Utils.TestApp1", "EDennis.AspNetCore.Utils.TestApp1\EDennis.AspNetCore.Utils.TestApp1.csproj", "{12653FED-AEDF-46FA-8E85-9BC8A034B64E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDennis.AspNetCore.Utils.TestApp1", "EDennis.AspNetCore.Utils.TestApp1\EDennis.AspNetCore.Utils.TestApp1.csproj", "{12653FED-AEDF-46FA-8E85-9BC8A034B64E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDennis.AspNetCore.Utils.Tests", "EDennis.AspNetCore.Utils.Tests\EDennis.AspNetCore.Utils.Tests.csproj", "{B813E100-314E-4390-9005-416BED20871C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDennis.AspNetCore.Utils.Tests", "EDennis.AspNetCore.Utils.Tests\EDennis.AspNetCore.Utils.Tests.csproj", "{B813E100-314E-4390-9005-416BED20871C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDennis.AspNetCore.Utils.TestApp2", "EDennis.AspNetCore.Utils.TestApp2\EDennis.AspNetCore.Utils.TestApp2.csproj", "{DC5E7C3B-E859-484C-811F-1AC0A7EA101F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDennis.TestContainerLauncher", "EDennis.TestContainerLauncher\EDennis.TestContainerLauncher.csproj", "{64A41D61-D502-4C03-9A0F-E783321058D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{B813E100-314E-4390-9005-416BED20871C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B813E100-314E-4390-9005-416BED20871C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B813E100-314E-4390-9005-416BED20871C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC5E7C3B-E859-484C-811F-1AC0A7EA101F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC5E7C3B-E859-484C-811F-1AC0A7EA101F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC5E7C3B-E859-484C-811F-1AC0A7EA101F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC5E7C3B-E859-484C-811F-1AC0A7EA101F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64A41D61-D502-4C03-9A0F-E783321058D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A41D61-D502-4C03-9A0F-E783321058D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A41D61-D502-4C03-9A0F-E783321058D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A41D61-D502-4C03-9A0F-E783321058D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

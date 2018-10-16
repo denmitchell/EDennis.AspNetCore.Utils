@@ -7,19 +7,20 @@
     <Company>edennis.com</Company>
     <Description>Provides various classes that assist with ASP.NET Core 2 development.</Description>
     <Summary>Provides various classes that assist with ASP.NET Core 2 development.</Summary>
-    <PackageTags>ASP.NET MVC middleware bytearray</PackageTags>
+    <PackageTags>ASP.NET MVC Middleware ByteArray PGP encryption GZip ModelBinder OutputFormatter</PackageTags>
     <PackageProjectUrl>https://github.com/denmitchell/EDennis.AspNetCore.Utils</PackageProjectUrl>
     <PackageIconUrl>https://avatars0.githubusercontent.com/u/2938333?s=400&amp;v=4</PackageIconUrl>
     <RepositoryUrl>https://github.com/denmitchell/EDennis.AspNetCore.Utils</RepositoryUrl>
-    <Version>1.0.0</Version>
-    <PackageReleaseNotes>Includes integration tests and PgpEncryptionMiddleware</PackageReleaseNotes>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Updated project meta-data</PackageReleaseNotes>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.5" />
     <PackageReference Include="PgpCore" Version="1.2.1" />
+    <PackageReference Include="SSH.NET" Version="2016.1.0" />
   </ItemGroup>
 
 </Project>

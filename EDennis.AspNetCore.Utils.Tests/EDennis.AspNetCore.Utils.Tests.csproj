@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EDennis.AspNetCore.Utils.TestApp1\EDennis.AspNetCore.Utils.TestApp1.csproj" />
+    <ProjectReference Include="..\EDennis.AspNetCore.Utils.TestApp2\EDennis.AspNetCore.Utils.TestApp2.csproj" />
     <ProjectReference Include="..\EDennis.AspNetCore.Utils\EDennis.AspNetCore.Utils.csproj" />
   </ItemGroup>
 

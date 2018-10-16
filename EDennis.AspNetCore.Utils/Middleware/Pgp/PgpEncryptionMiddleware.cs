@@ -12,7 +12,7 @@ namespace EDennis.AspNetCore.Utils.Middleware.Pgp {
     /// NOTE: ensure that the public key header uses the
     /// ascii armor (PEM) format with a space at the end of each line
     /// </summary>
-    public class PgpEncryptionMiddleware : PostProcessorMiddleware {
+    public class PgpEncryptionMiddleware : ResponseMiddleware {
 
         private readonly PgpEncryptionMiddlewareOptions _options;
         private byte[] _publicKey;
@@ -29,15 +29,16 @@ namespace EDennis.AspNetCore.Utils.Middleware.Pgp {
                 RequestDelegate next, PgpEncryptionMiddlewareOptions options):
             base(next){ _options = options; }
 
-        protected override void SetupTransformation(HttpContext context) {
+
+        /// <summary>
+        /// retrieves and stores parameters used for 
+        /// the PGP encryption
+        /// </summary>
+        /// <param name="context">The object through which headers can be retrieved</param>
+        protected override void Setup(HttpContext context) {
 
             //get the PGP public key and params from the headers
             var headers = context.Request.Headers;
-            var publicKeyHeaderValue = headers[_options.PublicKeyHeader];
-            var compressionTypeHeaderValue = headers[_options.CompressionTypeHeader];
-            var useArmorHeaderValue = headers[_options.UseArmorHeader];
-
-            //cast the key and params
             _publicKey = Encoding.UTF8.GetBytes(headers[_options.PublicKeyHeader]);
             _compressionType = new CompressionType().Parse(headers[_options.CompressionTypeHeader]);
             _useArmor = headers[_options.UseArmorHeader].ToString().ToLower() == "true";
@@ -54,8 +55,12 @@ namespace EDennis.AspNetCore.Utils.Middleware.Pgp {
         /// </summary>
         /// <param name="inStream">pre-encrypted stream</param>
         /// <param name="outStream">encrypted stream</param>
-        protected override void Transform(Stream inStream, Stream outStream) {
+        protected override void Process(Stream inStream, Stream outStream) {
             PgpCryptor.Encrypt(inStream, outStream, _publicKey, _compressionType, _useArmor);
         }
+
+
+        protected override void Teardown() {}
+
     }
 }
