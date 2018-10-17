@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EDennis.AspNetCore.Utils.Middleware.ResponseHeader;
 using EDennis.AspNetCore.Utils.Middleware.Sftp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,6 +37,16 @@ namespace EDennis.AspNetCore.Utils.TestApp2 {
                 options.PortHeader = "X-SftpPort";
                 options.UserNameHeader = "X-SftpUserName";
                 options.PasswordHeader = "X-SftpPassword";
+            });
+
+            app.UseResponseHeader(options => {
+                options.Headers = new Dictionary<string, string> {
+                    { "X-SftpFileName", "testfile" },
+                    { "X-SftpHost", "localhost" },
+                    { "X-SftpPort", "22" },
+                    { "X-SftpUserName", "root" },
+                    { "X-SftpPassword", "root" }
+                };
             });
 
 

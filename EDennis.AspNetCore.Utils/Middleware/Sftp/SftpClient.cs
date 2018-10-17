@@ -32,16 +32,17 @@ namespace EDennis.AspNetCore.Utils.Middleware.Sftp {
                 _client.UploadFile(inStream, fileName);
 
                 if (_client.Exists(fileName)) {
-                    var confirmation =  new Confirmation{
+                    var confirmation = new Confirmation {
                         HostName = _client.ConnectionInfo.Host,
                         FileName = fileName,
                         FileSize = _client.GetAttributes(fileName).Size
                     };
                     var outJson = JToken.FromObject(confirmation).ToString();
-                    using (var b = new StreamWriter(outStream)) {
+                    using (var b = new StreamWriter(outStream, Encoding.UTF8, 1000, true)) {
                         b.Write(outJson);
+                        b.Flush();
                     }
-                }
+            }
                     
             } else {
                 throw new IOException($"Cannot connect to {_client.ConnectionInfo.Host}");

@@ -7,6 +7,9 @@ using System.Threading;
 namespace EDennis.AspNetCore.Utils.Tests {
     public class SftpTestFixture : IDisposable{
 
+        // NOTE: You may have to restart Docker service upon reboot of Win10 machine
+        // SEE: https://github.com/docker/for-win/issues/1038
+
         private const string SFTP_SERVER_DOCKER_CONTAINER_NAME = "sftp_server";
         private const int SECONDS_TO_WAIT_FOR_CONTAINER_STARTUP = 3;
 
