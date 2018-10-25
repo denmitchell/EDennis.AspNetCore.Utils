@@ -11,10 +11,10 @@
     <PackageProjectUrl>https://github.com/denmitchell/EDennis.AspNetCore.Utils</PackageProjectUrl>
     <PackageIconUrl>https://avatars0.githubusercontent.com/u/2938333?s=400&amp;v=4</PackageIconUrl>
     <RepositoryUrl>https://github.com/denmitchell/EDennis.AspNetCore.Utils</RepositoryUrl>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>Added ResponseHeaderMiddleware and integration testing for SftpUploadMiddleware</PackageReleaseNotes>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
-    <FileVersion>1.1.0</FileVersion>
+    <Version>1.1.1</Version>
+    <PackageReleaseNotes>Added support for BypassMiddleware header, which tells the middleware to not execute when the header is present and equal to true.</PackageReleaseNotes>
+    <AssemblyVersion>1.1.1</AssemblyVersion>
+    <FileVersion>1.1.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

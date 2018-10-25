@@ -28,5 +28,12 @@ namespace EDennis.AspNetCore.Utils.Middleware.Pgp {
         /// (base-64)
         /// </summary>
         public string UseArmorHeader { get; set; } = "X-PgpUseArmor";
+
+        /// <summary>
+        /// The name of an optional header that, when present, tells 
+        /// middleware to not do anything.
+        /// </summary>
+        public string BypassMiddlewareHeader { get; set; } = "X-PgpBypass";
+
     }
 }

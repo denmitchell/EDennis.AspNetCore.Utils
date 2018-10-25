@@ -19,6 +19,7 @@ namespace EDennis.AspNetCore.Utils.Middleware.Sftp {
 
         private SftpClient _client;
         private string _fileName;
+        private bool _bypass = false;
 
         /// <summary>
         /// Constructs a new SftpUploadMiddleware object
@@ -46,6 +47,9 @@ namespace EDennis.AspNetCore.Utils.Middleware.Sftp {
             var username = headers[_options.UserNameHeader];
             var password = headers[_options.PasswordHeader];
 
+            if (headers.ContainsKey(_options.BypassMiddlewareHeader))
+                _bypass = headers[_options.BypassMiddlewareHeader].ToString().ToLower() == "true";
+
             //remove the headers once the keys have been used
             headers.Remove(_options.FileNameHeader);
             headers.Remove(_options.HostHeader);
@@ -65,7 +69,8 @@ namespace EDennis.AspNetCore.Utils.Middleware.Sftp {
         /// <param name="inStream">pre-encrypted stream</param>
         /// <param name="outStream">encrypted stream</param>
         protected override void Process(Stream inStream, Stream outStream) {
-            _client.Upload(inStream, outStream, _fileName);
+            if (!_bypass)
+                _client.Upload(inStream, outStream, _fileName);
         }
 
 

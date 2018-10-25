@@ -35,5 +35,11 @@ namespace EDennis.AspNetCore.Utils.Middleware.Sftp {
         /// </summary>
         public string PasswordHeader { get; set; } = "X-SftpPassword";
 
+        /// <summary>
+        /// The name of an optional header that, when present, tells 
+        /// middleware to not do anything.
+        /// </summary>
+        public string BypassMiddlewareHeader { get; set; } = "X-SftpBypass";
+
     }
 }

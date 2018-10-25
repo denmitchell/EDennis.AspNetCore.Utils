@@ -18,6 +18,7 @@ namespace EDennis.AspNetCore.Utils.Middleware.Pgp {
         private byte[] _publicKey;
         private CompressionType _compressionType;
         private bool _useArmor;
+        private bool _bypass;
 
         /// <summary>
         /// Constructs a new PgpEncryptionMiddleware object
@@ -42,12 +43,13 @@ namespace EDennis.AspNetCore.Utils.Middleware.Pgp {
             _publicKey = Encoding.UTF8.GetBytes(headers[_options.PublicKeyHeader]);
             _compressionType = new CompressionType().Parse(headers[_options.CompressionTypeHeader]);
             _useArmor = headers[_options.UseArmorHeader].ToString().ToLower() == "true";
+            if (headers.ContainsKey(_options.BypassMiddlewareHeader))
+                _bypass = headers[_options.BypassMiddlewareHeader].ToString().ToLower() == "true";
 
             //remove the headers once the keys have been used
             headers.Remove(_options.PublicKeyHeader);
             headers.Remove(_options.CompressionTypeHeader);
             headers.Remove(_options.UseArmorHeader);
-
         }
 
         /// <summary>
@@ -56,7 +58,8 @@ namespace EDennis.AspNetCore.Utils.Middleware.Pgp {
         /// <param name="inStream">pre-encrypted stream</param>
         /// <param name="outStream">encrypted stream</param>
         protected override void Process(Stream inStream, Stream outStream) {
-            PgpCryptor.Encrypt(inStream, outStream, _publicKey, _compressionType, _useArmor);
+            if(!_bypass)
+                PgpCryptor.Encrypt(inStream, outStream, _publicKey, _compressionType, _useArmor);
         }
 
 
