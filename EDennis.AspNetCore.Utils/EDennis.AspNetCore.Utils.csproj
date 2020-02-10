@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Dennis Mitchell</Authors>
     <Company>edennis.com</Company>
@@ -11,15 +11,17 @@
     <PackageProjectUrl>https://github.com/denmitchell/EDennis.AspNetCore.Utils</PackageProjectUrl>
     <PackageIconUrl>https://avatars0.githubusercontent.com/u/2938333?s=400&amp;v=4</PackageIconUrl>
     <RepositoryUrl>https://github.com/denmitchell/EDennis.AspNetCore.Utils</RepositoryUrl>
-    <Version>1.1.1</Version>
-    <PackageReleaseNotes>Added support for BypassMiddleware header, which tells the middleware to not execute when the header is present and equal to true.</PackageReleaseNotes>
-    <AssemblyVersion>1.1.1</AssemblyVersion>
-    <FileVersion>1.1.1</FileVersion>
+    <Version>3.1</Version>
+    <PackageReleaseNotes>Upgraded to .NET Core 3.1</PackageReleaseNotes>
+    <AssemblyVersion>3.1</AssemblyVersion>
+    <FileVersion>3.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.5" />
-    <PackageReference Include="PgpCore" Version="1.2.1" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="PgpCore" Version="2.2.0" />
     <PackageReference Include="SSH.NET" Version="2016.1.0" />
   </ItemGroup>
 
